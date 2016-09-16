@@ -1,0 +1,9 @@
+<h2 class="col-sm-6">Dashboard </h2>
+<hero-search class="col-sm-6"></hero-search>
+<div class="container-fluid">
+  <div *ngFor="let hero of heroes" (click)="gotoDetail(hero)" class="col-sm-3">
+    <div class="well" style="height:7em">
+      <h4>{{hero.name}}</h4>
+    </div>
+  </div>
+</div>

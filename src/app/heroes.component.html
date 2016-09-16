@@ -1,0 +1,23 @@
+<div class="row">
+  <h2>Heroes List</h2>
+  <form class="form-inline">
+    <div class="form-group">
+      <label>Hero Name:</label> <input #heroName class="form-control" />
+      <button (click)="add(heroName.value);heroName.value=''" class="btn btn-default">Add</button>
+    </div>
+  </form>
+</div>
+<div class="row">
+  <div class="list-group col-sm-6">
+    <button *ngFor="let hero of heroes" [class.active]="hero == selectedHero" (click)="onSelect(hero)" class="list-group-item">
+        <span class="btn btn-primary">{{hero.id}}</span> {{hero.name}}
+        <button class="btn btn-danger pull-right" (click)="delete(hero); $event.stopPropagation()">
+            <span class="glyphicon glyphicon-remove"></span>
+        </button>
+    </button>
+  </div>
+  <div *ngIf="selectedHero" class="col-sm-6">
+    <h3>{{ selectedHero.name | uppercase }}</h3>
+    <button (click)="gotoDetail()">View Details</button>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 {
-  "name": "ng2cli",
-  "version": "0.0.0",
+  "name": "ng2electron",
+  "version": "0.0.1",
+  "main": "main.electron.js",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
@@ -20,7 +21,10 @@
     "@angular/platform-browser": "2.0.0",
     "@angular/platform-browser-dynamic": "2.0.0",
     "@angular/router": "3.0.0",
+    "angular2-in-memory-web-api": "0.0.20",
+    "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
+    "i": "^0.3.5",
     "rxjs": "5.0.0-beta.12",
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.6.23"
@@ -29,6 +33,7 @@
     "@types/jasmine": "^2.2.30",
     "angular-cli": "1.0.0-beta.14",
     "codelyzer": "~0.0.26",
+    "concurrently": "^2.2.0",
     "jasmine-core": "2.4.1",
     "jasmine-spec-reporter": "2.5.0",
     "karma": "1.2.0",

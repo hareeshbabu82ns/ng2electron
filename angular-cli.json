@@ -1,7 +1,7 @@
 {
   "project": {
-    "version": "1.0.0-beta.14",
-    "name": "ng2cli"
+    "version": "0.0.1",
+    "name": "ng2electron"
   },
   "apps": [
     {
@@ -15,9 +15,12 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.css",
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/bootstrap/dist/js/bootstrap.js"
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",

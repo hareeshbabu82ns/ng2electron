@@ -1,0 +1,11 @@
+<div id="search-component">
+  <h4>Hero Search</h4>
+  <div class="input-group">
+    <input #searchBox id="search-box" (keyup)="search(searchBox.value)" placeholder="Search Heroes..." class="form-control" />
+    <div class="dropdown-menu show">
+      <button *ngFor="let hero of heroes | async" (click)="gotoDetail(hero)" class="list-group-item">
+            {{hero.name}}
+        </button>
+    </div>
+  </div>
+</div>

@@ -1,31 +1,56 @@
-# Ng2cli
+# ng2electron
+Sample Heroes application using Angular2 and angular-cli to build. App can run both on Browser and Electron.
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.14.
+## Generate project
+`ng new ng2electron`
+## Generate modules
+`ng generate <component|service|pipe>`
+## Port to Electron
+. added `main.electron.js` as main process to run Electron application
+. added `"main" : "main.electron.js"` to `package.json`
+. adjusted `index.html` to include `<base href="/">` dynamically
+```
+  <script>
+    let baseHref = "/";
+    if(typeof process !== 'undefined' && 
+      typeof process.versions.electron !== 'undefined'){
+      let path = require("path");
+      baseHref = "/" +__dirname.split(path.sep).join(path.posix.sep) + "/";
+    }
+    document.write("<base href=\""+baseHref+"\" >");
+  </script>
+```
+## Running the Application
+`npm serve` - runs application in development mode
+`npm build && electron .` - builds and runs application as Electron app
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+`ng serve` - runs project on http://localhost:4200
+`ng build` - builds project into dist folder
+`ng build --bh /url/` - specifies BASE URL of index page
+`electron .` - to run the app in Electron, (note: need to build app everytime)
 
-## Code scaffolding
+`ng set defaults.styleExt scss` - to set CSS styles for existing project
+`ng new sassy-project --style=sass` - to create new project with sass
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
+## 3rd Pary library installation
+``
+npm install d3 --save
+npm install @types/d3 --save-dev
+``
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/). 
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Deploying to Github Pages
-
-Run `ng github-pages:deploy` to deploy to Github Pages.
-
-## Further help
-
-To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Global Library installation
+``
+npm install bootstrap@next
+``
+adjust ``angular-cli.json``
+``
+"scripts": [
+  "../node_modules/jquery/dist/jquery.js",
+  "../node_modules/tether/dist/js/tether.js",
+  "../node_modules/bootstrap/dist/js/bootstrap.js"
+],
+"styles": [
+  "styles.css",
+  "../node_modules/bootstrap/dist/css/bootstrap.css"
+],
+``
