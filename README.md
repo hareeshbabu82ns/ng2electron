@@ -24,8 +24,9 @@ Sample Heroes application using Angular2 and angular-cli to build. App can run b
   </script>
 ```
 ## Running the Application
-* `npm serve` - runs application in development mode on http://localhost:4200
-* `npm build && electron .` - builds and runs application as Electron app
+* `ng serve` - runs application in development mode on http://localhost:4200
+* `ng build && electron .` - builds and runs application as Electron app
+* `npm run electron` - (alternative to above) builds and runs application as Electron app
 
 ### additional commands
 * `ng build --bh /url/` - specifies BASE URL of index page
